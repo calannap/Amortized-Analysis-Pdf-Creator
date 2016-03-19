@@ -8,7 +8,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 /**
  *
@@ -30,6 +37,23 @@ public class ProgettoAlgoritmi {
    
    public void setPath(String s){
        pathF = s;
+       Vector<String> vec = new Vector<String>();
+       String tmp="";
+
+       try {
+           //FileList.getSingle().getList().add
+           Files.walk(Paths.get(pathF)).forEach(filePath -> {
+               if (Files.isRegularFile(filePath)) {
+ 
+                   vec.addElement(filePath.toString());
+
+               }
+           });
+       } catch (IOException ex) {
+           Logger.getLogger(ProgettoAlgoritmi.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       FileList.getSingle().setList(vec);
+       Gui.getSingle().setTable();
    }
    
    public void setName(String s){
@@ -51,7 +75,7 @@ public class ProgettoAlgoritmi {
     public static void main(String[] args) 
     {
        
-      Gui dir = new Gui();
+      Gui dir = Gui.getSingle();
        dir.setVisible(true);  
 
         

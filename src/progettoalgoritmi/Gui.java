@@ -7,6 +7,7 @@ package progettoalgoritmi;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -15,12 +16,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  * @author Lee
  */
 public class Gui extends javax.swing.JFrame {
- ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
-   
+    ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
+    private static Gui asd = new Gui();
     /**
      * Creates new form Gui
      */
-    public Gui() {
+    private Gui() {
         initComponents();
         ChooseDir jInternalFrame = new ChooseDir();
         jPanel1.add(jInternalFrame);
@@ -29,9 +30,18 @@ public class Gui extends javax.swing.JFrame {
         jInternalFrame.remove(titlePane);
     }
     
-    
+    public static Gui getSingle(){
+        return asd;
+   }
     public void setTable(){
     
+        JFrame asd = new JFrame();
+        asd.setSize(800,600);
+        asd.add(FileList.getSingle());
+        asd.setVisible(true);
+        asd.setVisible(false);
+        jPanel1.add(FileList.getSingle());
+        FileList.getSingle().setVisible(true);
 
     }
 
@@ -93,7 +103,7 @@ public class Gui extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
+            .addGap(0, 541, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

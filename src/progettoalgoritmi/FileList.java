@@ -5,18 +5,34 @@
  */
 package progettoalgoritmi;
 
+import java.util.Vector;
+import javax.swing.JList;
+
 /**
  *
  * @author Lee
  */
 public class FileList extends javax.swing.JPanel {
-
+    private static FileList asd = new FileList();
+    Vector<String> local = new Vector<String>();
     /**
      * Creates new form FileList
      */
     public FileList() {
         initComponents();
     }
+
+    public static FileList getSingle(){
+        return asd;
+   }
+    
+    public void setList(Vector<String> lis){
+        local=lis;
+        this.validate();
+        this.repaint();
+        initComponents();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,7 +47,7 @@ public class FileList extends javax.swing.JPanel {
         jList1 = new javax.swing.JList<>();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = local.toArray(new String[local.size()]);
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -45,7 +61,9 @@ public class FileList extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
