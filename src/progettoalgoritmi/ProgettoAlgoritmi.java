@@ -51,18 +51,14 @@ public class ProgettoAlgoritmi {
     public static void main(String[] args) 
     {
        
-      ChooseDir dir = new ChooseDir();
-       dir.setVisible(true);   
-     /*  double res=0;
-        for (int i=0;i<100000000;i++)
-            res+=proced(i);
-        
-        System.out.println(res/100000000);*/
-        
+      Gui dir = new Gui();
+       dir.setVisible(true);  
 
         
     }
     
+    
+
     
 public String getCos(String s){
     
@@ -192,10 +188,10 @@ public String getCos(String s){
         "$\\sum\\limits_{i=1}^n {c\\textsubscript{i}}= \\sum\\limits_{\\substack{i=1 \\\\ i\\notin"+cond+"^N}}^n "+costo2+" +\\sum\\limits_{\\substack{i=1 \\\\ i\\in"+cond+"^N}}^n "+costo1+" $\n" +
         "\\\\\n" +
         "\\\\\n" +
-        "$="+costo2+"n- (\\left \\lfloor{\\lg_"+cond+" n}\\right \\rfloor +1) +\\frac{"+costo3+"}{"+(Integer.parseInt(cond)-1)+"} ("+cond+"^{\\left \\lfloor{\\lg_"+cond+" n}\\right \\rfloor+1}-1)$\n" +
+        "$="+costo2+"n- (\\left \\lfloor{\\lg_{"+cond+"} n}\\right \\rfloor +1) +\\frac{"+costo3+"}{"+(Integer.parseInt(cond)-1)+"} ("+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} n}\\right \\rfloor+1}-1)$\n" +
         "\\\\\n" +
         "\\\\\n" +
-        "$\\leq "+costo2+"n+"+costo4+"*"+""+cond+"^{\\lg n+1}$\n" +
+        "$\\leq "+costo2+"n+"+costo4+"*"+""+cond+"^{\\lg {n+1}}$\n" +
         "\\\\\n" +
         "\\\\\n" +
         "$= "+costo2+"n+"+costo4+"*"+""+cond+"n$\n" +
@@ -211,7 +207,7 @@ public String getCos(String s){
         "\\[ {\\Phi\\textsubscript{i}} =\n" +
         "  \\begin{cases}\n" +
         "    0       & \\quad \\text{se } i=0\\\\\n" +
-        "   "+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_"+cond+" i}\\right \\rfloor})  & \\quad \\text{} \\text{se i $\\geq$ 1}\\\\\n" +
+        "   "+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} i}\\right \\rfloor})  & \\quad \\text{} \\text{se i $\\geq$ 1}\\\\\n" +
         "  \\end{cases}\n" +
         "\\]\n" +
         "$\\Phi\\textsubscript{i} \\geq \\Phi\\textsubscript{0} \\quad \\forall i \\geq 0$\n" +
@@ -220,13 +216,13 @@ public String getCos(String s){
         "\\\\\n" +        "\\\\\n" + 
         "caso 1 $i\\notin"+cond+"^N$\n" +
         "\\\\\n" +        "\\\\\n" + 
-        "$\\hat{c}\\textsubscript{i}="+costo2+"+\\Phi\\textsubscript{i}-\\Phi\\textsubscript{i-1}= "+costo2+"+"+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_"+cond+" i}\\right \\rfloor})-"+costo7+"(i-1-"+cond+"^{\\left \\lfloor{\\lg_"+cond+" i-1}\\right \\rfloor})$\n" +
+        "$\\hat{c}\\textsubscript{i}="+costo2+"+\\Phi\\textsubscript{i}-\\Phi\\textsubscript{i-1}= "+costo2+"+"+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} i}\\right \\rfloor})-"+costo7+"(i-1-"+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} i-1}\\right \\rfloor})$\n" +
         "\\\\\n" +         "\\\\\n" + 
         "$="+costo2+"+"+costo5+"="+costo6+"$\n" +      
         "\\\\\n" +         "\\\\\n" + 
         "caso 2 $i\\in"+cond+"^N$\n" +    
         "\\\\\n" +        "\\\\\n" + 
-        "$\\hat{c}\\textsubscript{i}="+costo1+"+\\Phi\\textsubscript{i}-\\Phi\\textsubscript{i-1}= "+costo1+"+"+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_"+cond+" i}\\right \\rfloor})-"+costo7+"(i-1-"+cond+"^{\\left \\lfloor{\\lg_"+cond+" i-1}\\right \\rfloor})$\n" +
+        "$\\hat{c}\\textsubscript{i}="+costo1+"+\\Phi\\textsubscript{i}-\\Phi\\textsubscript{i-1}= "+costo1+"+"+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} i}\\right \\rfloor})-"+costo7+"(i-1-"+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} i-1}\\right \\rfloor})$\n" +
         "\\\\\n" +         "\\\\\n" + 
         "$="+costo1+"+"+costo7+"(-i)-"+costo7+"(-1-\\frac{i}{"+cond+"})$\n" +    
         "\\\\\n" +         "\\\\\n" +      
@@ -236,7 +232,7 @@ public String getCos(String s){
         "\\\\\n" +         "\\\\\n" +   
         "caso 3 $i=1$\n" +               
         "\\\\\n" +         "\\\\\n" +   
-        "$\\hat{c}\\textsubscript{i}="+costo3+"+\\Phi\\textsubscript{i}-\\Phi\\textsubscript{i-1}= "+costo3+"+"+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_"+cond+" i}\\right \\rfloor})$\n" +
+        "$\\hat{c}\\textsubscript{i}="+costo3+"+\\Phi\\textsubscript{i}-\\Phi\\textsubscript{i-1}= "+costo3+"+"+costo7+"(i-"+cond+"^{\\left \\lfloor{\\lg_{"+cond+"} i}\\right \\rfloor})$\n" +
         "\\\\\n" +         "\\\\\n" +     
         "$= "+costo3+"$\n" +
         "\\end{document}";

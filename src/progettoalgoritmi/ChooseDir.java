@@ -1,6 +1,7 @@
 package progettoalgoritmi;
 
 
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,22 +13,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
  * @author salvatorecalanna
  */
-public class ChooseDir extends javax.swing.JFrame {
+public class ChooseDir extends javax.swing.JInternalFrame {
  public String dir="";
 ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
     public ChooseDir() {
         initComponents();
-        
+
+
+
     }
     
     
     public String getDir(){
         return dir;
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -35,6 +41,7 @@ ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -50,7 +57,18 @@ ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
             .add(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Seleziona last path");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,9 +145,6 @@ ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
          Logger.getLogger(ChooseDir.class.getName()).log(Level.SEVERE, null, ex);
      }
 
-       Gui newGui =  new Gui();
-
-       newGui.setVisible(true);
        this.dispose();
 
     }//GEN-LAST:event_click
@@ -142,8 +157,6 @@ ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
 			String sCurrentLine;
 			if ((sCurrentLine = br.readLine()) != null) {
 				qwe.setPath(""+sCurrentLine.replace("lastPath=", ""));
-                                Gui newGui =  new Gui();
-                                newGui.setVisible(true);
                                 this.dispose();
 			}
                         else{
@@ -163,5 +176,6 @@ ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
     private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
