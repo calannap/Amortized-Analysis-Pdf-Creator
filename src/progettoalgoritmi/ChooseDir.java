@@ -160,7 +160,7 @@ ProgettoAlgoritmi qwe = ProgettoAlgoritmi.getSingle();
                                 this.dispose();
 			}
                         else{
-                        JOptionPane.showMessageDialog(null, "asdasd", "Yay, java", JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "asda2sd", "Yay, java", JOptionPane.PLAIN_MESSAGE);
 
                         }
 
